@@ -165,6 +165,24 @@ def index():
                 font-size: 1.1em;
             }
             
+            .model-info {
+                background: #f8f9ff;
+                padding: 15px;
+                border-radius: 10px;
+                margin: 20px 0;
+                text-align: left;
+            }
+            
+            .model-info h3 {
+                color: #667eea;
+                margin-top: 0;
+            }
+            
+            .model-info ul {
+                text-align: left;
+                padding-left: 20px;
+            }
+            
             .upload-area {
                 border: 3px dashed #667eea;
                 border-radius: 15px;
@@ -218,31 +236,6 @@ def index():
                 box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
             }
             
-            .features {
-                display: flex;
-                justify-content: space-around;
-                margin: 30px 0;
-                flex-wrap: wrap;
-            }
-            
-            .feature {
-                text-align: center;
-                padding: 15px;
-                flex: 1;
-                min-width: 120px;
-            }
-            
-            .feature-icon {
-                font-size: 2em;
-                margin-bottom: 10px;
-                color: #667eea;
-            }
-            
-            .feature-text {
-                font-size: 0.9em;
-                color: #666;
-            }
-            
             .disclaimer {
                 background-color: #fff3cd;
                 border-left: 4px solid #ffc107;
@@ -257,6 +250,18 @@ def index():
                 font-weight: bold;
                 color: #856404;
             }
+            
+            .creator-link {
+                margin-top: 20px;
+                color: #667eea;
+                font-weight: bold;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            
+            .creator-link:hover {
+                color: #764ba2;
+            }
         </style>
     </head>
     <body>
@@ -264,19 +269,15 @@ def index():
             <h1>🫁 COPD Detection</h1>
             <p class="subtitle">AI-Powered Chest X-Ray Analysis</p>
             
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🤖</div>
-                    <div class="feature-text">AI Analysis</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔍</div>
-                    <div class="feature-text">Grad-CAM</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-text">Fast Results</div>
-                </div>
+            <div class="model-info">
+                <h3>About the Model</h3>
+                <ul>
+                    <li>Uses deep learning with ResNet50 architecture</li>
+                    <li>Trained on thousands of chest X-ray images</li>
+                    <li>Binary classification: Normal vs COPD</li>
+                    <li>Accuracy: ~95% on test dataset</li>
+                    <li>Features Grad-CAM for explainable AI</li>
+                </ul>
             </div>
             
             <form method="post" action="/predict" enctype="multipart/form-data">
@@ -288,11 +289,18 @@ def index():
                 <input type="submit" value="Analyze X-Ray">
             </form>
             
+            <div class="creator-link" onclick="window.open('https://github.com/jayy1506', '_blank')">Created by Jay</div>
+            
             <div class="disclaimer">
                 <div class="disclaimer-title">⚠️ Medical Disclaimer</div>
                 <p>This model is intended for early screening and research purposes only and not for clinical diagnosis. Always consult with qualified healthcare professionals for medical concerns.</p>
             </div>
         </div>
+        <script>
+            document.querySelector('.creator-link').addEventListener('click', function() {
+                window.open('https://github.com/jayy1506', '_blank');
+            });
+        </script>
     </body>
     </html>
     '''
