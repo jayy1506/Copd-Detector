@@ -253,9 +253,9 @@ def main():
     print("Starting retraining process...")
     
     # Load and preprocess data
-    data_dir = r"c:\Users\jthak\OneDrive\Desktop\chest-xray"
+    data_dir = r"c:\Users\jthak\OneDrive\Attachments\Desktop\chest-xray"
     # Use a larger sample for better training
-    X_train, y_train, X_val, y_val, X_test, y_test = load_and_preprocess_data(data_dir, max_samples=200)
+    X_train, y_train, X_val, y_val, X_test, y_test = load_and_preprocess_data(data_dir, max_samples=None)  # Using all available data
     
     # Check if we have data
     if len(X_train) == 0:
